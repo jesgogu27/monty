@@ -1,20 +1,12 @@
-#ifndef _MONTY_H
-#define _MONTY_H
+#ifndef MONTY_H
+#define MONTY_H
 
-extern int val;
-#define UNUSED(x) (void)(x)
-
-
-#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <fcntl.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <sys/types.h>
+#include <stdlib.h>
 #include <unistd.h>
-#include <errno.h>
 #include <ctype.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -26,10 +18,12 @@ extern int val;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
+
+
 
 /**
  * struct instruction_s - opcode and its function
@@ -41,17 +35,48 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct glob_var_s - Global Variable for data
+ * @file: contain the data file
+ * @linebuf: contain line of file
+ * @sizbuf: contain size of file
+ * @node_num: node number to add
+ *
+ */
+typedef struct glob_var_s
+{
+	FILE *file;
+	char *linebuf;
+	char *sizbuf;
+	int node_num;
+} glob_var_t;
 
-int op_func(char *opcode, stack_t **stack, unsigned int line_num);
-void pile_up(char *reg);
-void _pall(stack_t **stack, unsigned int line_number);
-void _push(stack_t **stack, unsigned int line_number, char *token);
-void free_list(stack_t **stack);
-void free_all(stack_t *stack, char *l, FILE *arc);
+extern glob_var_t Var;
 
+/* ------------------ General Functions --------------------------- */
+int main(int ac, char **av);
+int readfile(char *filename);
+char *stacki(char *buffer);
+char *func_parser(stack_t *head, unsigned int num);
+int get_functions(stack_t **head, unsigned int line_number);
+void free_stacki(stack_t *head);
+
+/* -------------------- Errors Functions -------------------------*/
+void int_Error(stack_t *head, unsigned int number);
+void parser_line(ssize_t characters);
+void check_opc_code(int line_check, unsigned int line_num, stack_t *head);
+void check_instructions(unsigned int line_num);
+
+/* ------------------ Node Functions -----------------------------*/
+void func_code_push(stack_t **stack, unsigned int ln __attribute__((unused)));
+void func_code_pall(stack_t **stack, unsigned int ln __attribute__((unused)));
+void free_stacki(stack_t *head);
+void _pint(stack_t **stack, unsigned int ln __attribute__((unused)));
+void _pop(stack_t **stack, unsigned int ln __attribute__((unused)));
+void _swap(stack_t **stack, unsigned int ln __attribute__((unused)));
 
 #endif
