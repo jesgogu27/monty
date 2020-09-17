@@ -46,11 +46,12 @@ typedef struct instruction_s
 } instruction_t;
 
 int op_func(char *opcode, stack_t **stack, unsigned int line_num);
-void pile_up(char *reg);
 void _pall(stack_t **stack, unsigned int line_number);
 void _push(stack_t **stack, unsigned int line_number, char *token);
 void free_list(stack_t **stack);
+void _pint(stack_t **stack, unsigned int line_number);
 void free_all(stack_t *stack, char *l, FILE *ar);
+
 
 
 #endif
