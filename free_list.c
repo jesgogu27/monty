@@ -23,10 +23,10 @@ void free_list(stack_t **head)
  * Return: N/A, void function
  */
 
-void free_all(stack_t *stack, char *l, FILE *arc)
+void free_all(stack_t *stack, char *l, FILE *ar)
 {
 	if (stack != NULL)
 		free_list(&stack);
 	free(l);
-	fclose(arc);
+	fclose(ar);
 }

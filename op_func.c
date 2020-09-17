@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * op_func - use the right opcode function
  * @opcode: opcode function to use
@@ -14,6 +15,7 @@ int op_func(char *opcode, stack_t **stack, unsigned int line_num)
 		{"pall", _pall},
 		{"pint", _pint},
 		{"pop", _pop},
+		{"swap", _swap},
 		{NULL, NULL}
 	};
 
