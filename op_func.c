@@ -13,6 +13,7 @@ int op_func(char *opcode, stack_t **stack, unsigned int line_num)
 	instruction_t opc[] = {
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pop", _pop},
 		{NULL, NULL}
 	};
 
