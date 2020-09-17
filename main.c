@@ -1,4 +1,6 @@
 #include "monty.h"
+int  val = 0;
+
 /**
  * main - receives arguments and then passes to stack
  * @argc: argument count
@@ -6,9 +8,10 @@
  * Return: 0 if success
  */
 
+
 int main(int argc, char **argv)
 {
-	int  val = 0;
+	
 	char *l, *symbol;
 	unsigned int line_num;
 	size_t len;
