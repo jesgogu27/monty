@@ -17,6 +17,7 @@ int op_func(char *opcode, stack_t **stack, unsigned int line_num)
 		{"pop", _pop},
 		{"swap", _swap},
 		{"add", _add},
+		{"sub", _sub},
 		{NULL, NULL}
 	};
 
