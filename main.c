@@ -10,7 +10,6 @@ int  val = 0;
 
 int main(int argc, char **argv)
 {
-	
 	char *l, *symbol;
 	unsigned int line_num;
 	size_t len;
@@ -18,16 +17,11 @@ int main(int argc, char **argv)
 	FILE *ar;
 
 	if (argc != 2)
-	{
-		printf("USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		arguments_error();
+
 	ar = fopen(argv[1], "r");
 	if (ar == NULL)
-	{
-		printf("Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+		file_error(argv[1]);
 
 	stack = NULL;
 	l = symbol = NULL;

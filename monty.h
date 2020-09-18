@@ -56,6 +56,7 @@ void _pint(stack_t **stack, unsigned int line_number);
 void _sub(stack_t **stack, unsigned int line_number);
 void free_all(stack_t *stack, char *l, FILE *ar);
 
-
+void arguments_error(void);
+void file_error(char *file);
 
 #endif
