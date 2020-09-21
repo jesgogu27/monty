@@ -22,3 +22,16 @@ void file_error(char *file)
 	fprintf(stderr, "Error: Can't open file %s\n", file);
 	exit(EXIT_FAILURE);
 }
+
+/**
+ *_token - option
+ *@line_number: file that is read
+ *Return: Nothing
+ */
+
+void _token(unsigned int line_number)
+{
+		printf("L%d: usage: push integer\n", line_number);
+		val = 1;
+		exit(EXIT_FAILURE);
+}

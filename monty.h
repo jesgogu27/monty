@@ -58,5 +58,5 @@ void free_all(stack_t *stack, char *l, FILE *ar);
 
 void arguments_error(void);
 void file_error(char *file);
-
+void _token(unsigned int line_number);
 #endif
